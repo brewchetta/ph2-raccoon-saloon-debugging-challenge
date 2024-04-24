@@ -8,16 +8,14 @@ function RaccoonForm({ setRaccoonsArr, raccoonsArr }) {
 
     function handleChangeName(event) {
         setName(event.target.value)
-        // setName(event.target)
     }
     
     function handleChangeLocation(event) {
         setLocation(event.target.value)
-        // setLocation(event.target)
     }
 
     function handleChangeImageUrl(event) {
-        // setImgUrl(event.target)
+        setImgUrl(event.target.value)
     }
 
     function handleSubmit(event) {
@@ -26,14 +24,12 @@ function RaccoonForm({ setRaccoonsArr, raccoonsArr }) {
         const bodyObj = {name, location, img_url}
 
         fetch("http://localhost:5555/raccoons", {
-        // fetch("http://localhost:5555", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json"
             },
             body: JSON.stringify(bodyObj)
-            // body: bodyObj
         })
         .then( res => {
             if (res.ok) {
@@ -54,7 +50,6 @@ function RaccoonForm({ setRaccoonsArr, raccoonsArr }) {
             name="name" 
             onChange={handleChangeName} 
             value={name}
-            // value={'name'}
             placeholder="raccoon name" />
 
             <label htmlFor="location">Location:</label>
@@ -62,7 +57,6 @@ function RaccoonForm({ setRaccoonsArr, raccoonsArr }) {
             name="location" 
             onChange={handleChangeLocation} 
             value={location}
-            // value={'location'}
             placeholder="raccoon location" />
 
             <label htmlFor="img_url">Image:</label>
@@ -70,7 +64,6 @@ function RaccoonForm({ setRaccoonsArr, raccoonsArr }) {
             name="img_url" 
             onChange={handleChangeImageUrl} 
             value={img_url}
-            // value={'img_url'}
             placeholder="image url" />
 
             <br/>
